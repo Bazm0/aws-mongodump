@@ -1,0 +1,28 @@
+{
+  "name": "aws-mongodump",
+  "version": "0.0.1",
+  "description": "mongodumps directly to s3, does not pass go, does not create dump locally and then upload. streams and pipes all the way.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git@github.com:Bazm0/aws-mongodump.git",
+  "keywords": [
+    "aws",
+    "s3",
+    "mongo",
+    "mongodump",
+    "mongodb",
+    "stream",
+    "backup"
+  ],
+  "author": "Barry Quigley",
+  "license": "BSD",
+  "dependencies": {
+    "knox": "~0.8.0",
+    "knox-mpu": "0.1.6",
+    "mongo-uri": "~0.1.2",
+    "mongodb": "~1.2.14",
+    "loglevel": "~0.2.0"
+  }
+}

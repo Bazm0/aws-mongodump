@@ -52,3 +52,9 @@ If you want to keep your configs in environment variables instead (Who could bla
     AWS_KEY
     AWS_SECRET
     AWS_BUCKET
+
+
+### Thanks
+[@timisbusy][1] for the providing pretty much all of this code base, added convict (json) config options and updated logger.
+
+[1]: https://github.com/timisbusy/

@@ -1,2 +1,2 @@
-var dump = require('./lib/dumpstr');
+var dump = require('./lib/awsMongodump');
 module.exports = dump;

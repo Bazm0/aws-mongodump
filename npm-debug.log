@@ -1,0 +1,104 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish', './' ]
+2 info using npm@1.4.14
+3 info using node@v0.10.29
+4 verbose publish [ './' ]
+5 verbose cache add [ './', null ]
+6 verbose cache add name=undefined spec="./" args=["./",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: './',
+7 verbose parsed url   path: './',
+7 verbose parsed url   href: './' }
+8 silly lockFile 0ee6c175- ./
+9 verbose lock ./ /Users/barry/.npm/0ee6c175-.lock
+10 verbose tar pack [ '/Users/barry/.npm/aws-mongodump/0.0.1/package.tgz', './' ]
+11 verbose tarball /Users/barry/.npm/aws-mongodump/0.0.1/package.tgz
+12 verbose folder ./
+13 info prepublish aws-mongodump@0.0.1
+14 silly lockFile 04cb2bca-tar tar://./
+15 verbose lock tar://./ /Users/barry/.npm/04cb2bca-tar.lock
+16 silly lockFile 7ea65839--aws-mongodump-0-0-1-package-tgz tar:///Users/barry/.npm/aws-mongodump/0.0.1/package.tgz
+17 verbose lock tar:///Users/barry/.npm/aws-mongodump/0.0.1/package.tgz /Users/barry/.npm/7ea65839--aws-mongodump-0-0-1-package-tgz.lock
+18 silly lockFile 04cb2bca-tar tar://./
+19 silly lockFile 04cb2bca-tar tar://./
+20 silly lockFile 7ea65839--aws-mongodump-0-0-1-package-tgz tar:///Users/barry/.npm/aws-mongodump/0.0.1/package.tgz
+21 silly lockFile 7ea65839--aws-mongodump-0-0-1-package-tgz tar:///Users/barry/.npm/aws-mongodump/0.0.1/package.tgz
+22 silly lockFile 1b478b2c--npm-aws-mongodump-0-0-1-package /Users/barry/.npm/aws-mongodump/0.0.1/package
+23 verbose lock /Users/barry/.npm/aws-mongodump/0.0.1/package /Users/barry/.npm/1b478b2c--npm-aws-mongodump-0-0-1-package.lock
+24 silly lockFile 1b478b2c--npm-aws-mongodump-0-0-1-package /Users/barry/.npm/aws-mongodump/0.0.1/package
+25 silly lockFile 1b478b2c--npm-aws-mongodump-0-0-1-package /Users/barry/.npm/aws-mongodump/0.0.1/package
+26 silly lockFile 0ee6c175- ./
+27 silly lockFile 0ee6c175- ./
+28 silly publish { name: 'aws-mongodump',
+28 silly publish   version: '0.0.1',
+28 silly publish   description: 'mongodumps directly to s3, does not pass go, does not create dump locally and then upload. streams and pipes all the way.',
+28 silly publish   main: 'index.js',
+28 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+28 silly publish   repository: { type: 'git', url: 'git@github.com:Bazm0/aws-mongodump.git' },
+28 silly publish   keywords: [ 'aws', 's3', 'mongo', 'mongodump', 'mongodb', 'stream', 'backup' ],
+28 silly publish   author: { name: 'Barry Quigley' },
+28 silly publish   license: 'BSD',
+28 silly publish   dependencies:
+28 silly publish    { knox: '~0.8.0',
+28 silly publish      'knox-mpu': '0.1.6',
+28 silly publish      'mongo-uri': '~0.1.2',
+28 silly publish      mongodb: '~1.2.14',
+28 silly publish      loglevel: '~0.2.0' },
+28 silly publish   readme: '# aws-mongodump\n\nA node.js package to dump mongodb (mongodump) directly into s3 without filling up your local disk in the process.\n\nNOTE: This is still a work in progress. Please don\'t rely on it as your only backup option, especially without some decent testing.\n\nNOTE 2: You may need to upgrade your version of mongodump (by upgrading mongo) due to this issue: https://jira.mongodb.org/browse/SERVER-5233\n## Install\n\n    npm install aws-mongodump\n\n## Use\n\n    var dump = require(\'aws-mongodump\').dump;\n\n    var now = +new Date(); // gives the current time as a number\n\n    dump("MY_MONGO_URI", "mongobackup-" + now, function (err, res) {\n      if (err) { throw err; }\n      console.log(\'results: \', res);\n    });\n\nBy default, dumpstr will check for a file in your working directory called "conf.js", which should look something like this. \n\n    // This file is called conf.js\n    module.exports = {\n      aws: {\n        key: "MY_KEY_IS_HERE"\n      , secret: "THIS_IS_SECRET_HERE"\n      , bucket: "I_HAS_A_BUCKET"\n      }\n    }\n\nYou can also update that path using setConfig.\n\n    var md = require(\'dumpstr\')\n    , dump = md.dump;\n\n    md.setConfig("my_config_path/is_better.js");\n\n\nOr you can supply a json config object directly using setConfigJson.\n\n    var md = require(\'dumpstr\')\n    , dump = md.dump;\n\n    md.setConfigJson(json);\n\n\nIf you want to keep your configs in environment variables instead (Who could blame you?), go ahead and set these instead. That way you can leave out the config file entirely.\n\n    AWS_KEY\n    AWS_SECRET\n    AWS_BUCKET\n\n\n### Thanks\n[@timisbusy][1] for the providing pretty much all of this code base, added convict (json) config options and updated logger.\n\n[1]: https://github.com/timisbusy/\n',
+28 silly publish   readmeFilename: 'README.md',
+28 silly publish   gitHead: '20c9c39718f3ab15376216a2aea272e3d6a365ad',
+28 silly publish   bugs: { url: 'https://github.com/Bazm0/aws-mongodump/issues' },
+28 silly publish   homepage: 'https://github.com/Bazm0/aws-mongodump',
+28 silly publish   _id: 'aws-mongodump@0.0.1',
+28 silly publish   _shasum: '61632c0d6a0c9bfb2dfe39ce89ddce55b4ed1b4e',
+28 silly publish   _from: './' }
+29 verbose url raw aws-mongodump
+30 verbose url resolving [ 'https://registry.npmjs.org/', './aws-mongodump' ]
+31 verbose url resolved https://registry.npmjs.org/aws-mongodump
+32 info trying registry request attempt 1 at 13:28:35
+33 http PUT https://registry.npmjs.org/aws-mongodump
+34 http 403 https://registry.npmjs.org/aws-mongodump
+35 verbose headers { date: 'Fri, 12 Dec 2014 13:28:34 GMT',
+35 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+35 verbose headers   'content-type': 'application/json',
+35 verbose headers   'cache-control': 'max-age=60',
+35 verbose headers   'content-length': '4805',
+35 verbose headers   'accept-ranges': 'bytes',
+35 verbose headers   via: '1.1 varnish',
+35 verbose headers   'x-served-by': 'cache-lhr6328-LHR',
+35 verbose headers   'x-cache': 'MISS',
+35 verbose headers   'x-cache-hits': '0',
+35 verbose headers   'x-timer': 'S1418390913.808120,VS0,VE582',
+35 verbose headers   'keep-alive': 'timeout=10, max=50',
+35 verbose headers   connection: 'Keep-Alive' }
+36 error publish Failed PUT 403
+37 error Error: forbidden cannot modify pre-existing version: 0.0.1
+37 error old={"name":"aws-mongodump","version":"0.0.1","description":"mongodumps directly to s3, does not pass go, does not create dump locally and then upload. streams and pipes all the way.","main":"index.js","scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"repository":{"type":"git","url":"git@github.com:Bazm0/aws-mongodump.git"},"keywords":["aws","s3","mongo","mongodump","mongodb","stream","backup"],"author":{"name":"Barry Quigley"},"license":"BSD","dependencies":{"knox":"~0.8.0","knox-mpu":"0.1.6","mongo-uri":"~0.1.2","mongodb":"~1.2.14","loglevel":"~0.2.0"},"gitHead":"18e649e8674eb674e365ec469ca55d25cb904d7f","bugs":{"url":"https://github.com/Bazm0/aws-mongodump/issues"},"homepage":"https://github.com/Bazm0/aws-mongodump","_id":"aws-mongodump@0.0.1","_shasum":"61632c0d6a0c9bfb2dfe39ce89ddce55b4ed1b4e","_from":"./","_npmVersion":"1.4.14","_npmUser":{"name":"bazm0","email":"barryquigley@yahoo.com"},"maintainers":[{"name":"bazm0","email":"barryquigley@yahoo.com"}],"dist":{"shasum":"61632c0d6a0c9bfb2dfe39ce89ddce55b4ed1b4e","tarball":"http://registry.npmjs.org/aws-mongodump/-/aws-mongodump-0.0.1.tgz"}}
+37 error new={"name":"aws-mongodump","version":"0.0.1","description":"mongodumps directly to s3, does not pass go, does not create dump locally and then upload. streams and pipes all the way.","main":"index.js","scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"repository":{"type":"git","url":"git@github.com:Bazm0/aws-mongodump.git"},"keywords":["aws","s3","mongo","mongodump","mongodb","stream","backup"],"author":{"name":"Barry Quigley"},"license":"BSD","dependencies":{"knox":"~0.8.0","knox-mpu":"0.1.6","mongo-uri":"~0.1.2","mongodb":"~1.2.14","loglevel":"~0.2.0"},"readme":"# aws-mongodump\u000a\u000aA node.js package to dump mongodb (mongodump) directly into s3 without filling up your local disk in the process.\u000a\u000aNOTE: This is still a work in progress. Please don't rely on it as your only backup option, especially without some decent testing.\u000a\u000aNOTE 2: You may need to upgrade your version of mongodump (by upgrading mongo) due to this issue: https://jira.mongodb.org/browse/SERVER-5233\u000a## Install\u000a\u000a    npm install aws-mongodump\u000a\u000a## Use\u000a\u000a    var dump = require('aws-mongodump').dump;\u000a\u000a    var now = +new Date(); // gives the current time as a number\u000a\u000a    dump(\"MY_MONGO_URI\", \"mongobackup-\" + now, function (err, res) {\u000a      if (err) { throw err; }\u000a      console.log('results: ', res);\u000a    });\u000a\u000aBy default, dumpstr will check for a file in your working directory called \"conf.js\", which should look something like this. \u000a\u000a    // This file is called conf.js\u000a    module.exports = {\u000a      aws: {\u000a        key: \"MY_KEY_IS_HERE\"\u000a      , secret: \"THIS_IS_SECRET_HERE\"\u000a      , bucket: \"I_HAS_A_BUCKET\"\u000a      }\u000a    }\u000a\u000aYou can also update that path using setConfig.\u000a\u000a    var md = require('dumpstr')\u000a    , dump = md.dump;\u000a\u000a    md.setConfig(\"my_config_path/is_better.js\");\u000a\u000a\u000aOr you can supply a json config object directly using setConfigJson.\u000a\u000a    var md = require('dumpstr')\u000a    , dump = md.dump;\u000a\u000a    md.setConfigJson(json);\u000a\u000a\u000aIf you want to keep your configs in environment variables instead (Who could blame you?), go ahead and set these instead. That way you can leave out the config file entirely.\u000a\u000a    AWS_KEY\u000a    AWS_SECRET\u000a    AWS_BUCKET\u000a\u000a\u000a### Thanks\u000a[@timisbusy][1] for the providing pretty much all of this code base, added convict (json) config options and updated logger.\u000a\u000a[1]: https://github.com/timisbusy/\u000a","readmeFilename":"README.md","gitHead":"20c9c39718f3ab15376216a2aea272e3d6a365ad","bugs":{"url":"https://github.com/Bazm0/aws-mongodump/issues"},"homepage":"https://github.com/Bazm0/aws-mongodump","_id":"aws-mongodump@0.0.1","_shasum":"61632c0d6a0c9bfb2dfe39ce89ddce55b4ed1b4e","_from":"./","_npmVersion":"1.4.14","_npmUser":{"name":"bazm0","email":"barryquigley@yahoo.com"},"maintainers":[{"name":"bazm0","email":"barryquigley@yahoo.com"}],"dist":{"shasum":"61632c0d6a0c9bfb2dfe39ce89ddce55b4ed1b4e","tarball":"http://registry.npmjs.org/aws-mongodump/-/aws-mongodump-0.0.1.tgz"}}: aws-mongodump
+37 error     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:274:14)
+37 error     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:212:65)
+37 error     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:123:22)
+37 error     at Request.emit (events.js:98:17)
+37 error     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:893:14)
+37 error     at Request.emit (events.js:117:20)
+37 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:844:12)
+37 error     at IncomingMessage.emit (events.js:117:20)
+37 error     at _stream_readable.js:929:16
+37 error     at process._tickCallback (node.js:419:13)
+38 error If you need help, you may report this *entire* log,
+38 error including the npm and node versions, at:
+38 error     <http://github.com/npm/npm/issues>
+39 error System Darwin 14.0.0
+40 error command "/usr/local/bin/node" "/usr/local/bin/npm" "publish" "./"
+41 error cwd /Users/barry/Development/aws-mongodump
+42 error node -v v0.10.29
+43 error npm -v 1.4.14
+44 verbose exit [ 1, true ]
